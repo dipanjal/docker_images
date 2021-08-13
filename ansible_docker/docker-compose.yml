@@ -1,14 +1,16 @@
-version: '3'
+version: '3.9'
 
 services:
   ansible:
     build:
       context: ./ansible
+    image: dipanjal/ansible-docker-image:latest
+    container_name: ansible-docker-container
     volumes:
         # Your Custome Volume Mappings Here
-      - ~/Documents/projects:/home/ansible
-      - ~/.ssh:/home/ansible/.ssh
-      - ~/.gitconfig:/home/ansible/.gitconfig
+      - ~/Documents/projects:/home/root
+      # - ~/.ssh:/home/ansible/.ssh
+      - ~/.gitconfig:/home/root/.gitconfig
     stdin_open: true
     tty: true
     command: tail -f /dev/null

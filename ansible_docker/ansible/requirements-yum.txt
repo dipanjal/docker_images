@@ -8,6 +8,7 @@ libffi-devel
 make
 git
 unzip
-sshpass
 vim
 nano
+sshpass
+ca-certificates
