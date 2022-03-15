@@ -1,0 +1,24 @@
+version: '3.9'
+services:
+
+  mysql_db:
+    image: mysql:latest
+    container_name: mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: book_db
+    volumes:
+      - ~/data/book_mysql:/var/lib/mysql
+    ports:
+      - 3306:3306
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    restart: unless-stopped
+    environment:
+      PMA_HOST: mysql_db
+    depends_on:
+      - mysql_db
+    ports:
+      - "6060:80"

@@ -1,0 +1,6 @@
+version: '3.9'
+service:
+  pgAdmin4-db:
+  restart: always
+  image: dpage/pgadmin4:latest
+  

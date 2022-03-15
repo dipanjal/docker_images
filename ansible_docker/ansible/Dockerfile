@@ -1,5 +1,5 @@
 FROM centos:7 as ansible_runner
-ENV PS1 '$(whoami):$(pwd)\\$ '
+# ENV PS1 '$(whoami):$(pwd)\\$ '
 # ARG USER=ansible
 # ARG PASS=ansible
 # ARG UID=1000
@@ -19,4 +19,4 @@ RUN pip3 install --upgrade -r /tmp/requirements.txt
 # RUN useradd -m ${USER} --uid=${UID} && echo "${USER}:${PASS}" | \
 #       chpasswd
 # USER ${UID}:${GID}
-WORKDIR /home/root 
+WORKDIR /home/root

@@ -1,0 +1,33 @@
+# version: '3.9'
+# services:
+#   nginx-service:
+#     restart: always
+#     image: nginx:stable-alpine
+#     container_name: nginx_apline_container
+#     ports:
+#       - 8443:8443
+#     volumes:
+#       - ~/data/nginx/default.conf:/etc/nginx/conf.d/default.conf
+#       - ~/data/nginx/ucb_unet_ev_06_Oct_2021.key:/ucb_unet_ev_06_Oct_2021.key
+#       - ~/data/nginx/unet_ucb_com_bd_06_Oct_2021.cer:/unet_ucb_com_bd_06_Oct_2021.cer
+
+
+version: '3.9'
+services:
+  openvpn-as:
+    image: linuxserver/openvpn-as:latest
+    container_name: openvpn-as
+    cap_add:
+      - NET_ADMIN
+    environment:
+      - PUID=1000
+      - PGID=1000
+      # - TZ=Europe/London
+      # - INTERFACE=eth0 #optional
+    # volumes:
+    #   - <path to data>:/config
+    ports:
+      - 943:943
+      - 9443:9443
+      - 1194:1194/udp
+    restart: unless-stopped

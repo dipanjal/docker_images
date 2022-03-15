@@ -9,8 +9,8 @@ services:
     volumes:
         # Your Custome Volume Mappings Here
       - ~/Documents/projects:/home/root
-      # - ~/.ssh:/home/ansible/.ssh
-      - ~/.gitconfig:/home/root/.gitconfig
+      - ~/.ssh:/home/root/.ssh
+      # - ~/.gitconfig:/home/root/.gitconfig
     stdin_open: true
     tty: true
     command: tail -f /dev/null
